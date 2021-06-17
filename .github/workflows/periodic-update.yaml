@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '30 * * * *'
+    - cron:  '0 * * * *'
   workflow_dispatch: {}
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
       with:
         persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-        ref: test-product-2.0
+        ref: test-product-2.1
     - name: Create local changes
       run: date > timestamp.txt
     - name: Commit files
@@ -22,4 +22,4 @@ jobs:
       uses: ad-m/github-push-action@v0.6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: test-product-2.0
+        branch: test-product-2.1
