@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '0 * * * *'
+    - cron:  '*/15 * * * *'
   workflow_dispatch: {}
 jobs:
   build-2-0:
